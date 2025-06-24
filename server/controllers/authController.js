@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import userModel from '../config/models/userModel.js';
+import transporter from '../config/nodemailer.js';
 
 export const register = async (req, res) => {
 
@@ -69,6 +70,15 @@ export const login = async (req, res) => {
             sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict',
             maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
         });
+
+        const mailOptions = {
+            from: process.env.SMTP_USER,
+            to: user.email,
+            subject: 'Login Notification',
+            text: `Hello ${user.name},\n\nYou have successfully logged in to your account.\n\nThank you!`
+        };
+
+        await transporter.sendMail(mailOptions);
 
         return res.json({success: true});
 
