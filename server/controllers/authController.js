@@ -1,4 +1,5 @@
-
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 export const register = async (req, res) => {
 
@@ -10,6 +11,8 @@ export const register = async (req, res) => {
     }
 
     try {
+
+        const hashedPassword = await bcrypt.hash(password, 10);
 
     } catch (error) {
         res.json({success: false, message: error.message});
