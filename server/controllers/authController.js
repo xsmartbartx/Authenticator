@@ -70,6 +70,17 @@ export const login = async (req, res) => {
             maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
         });
 
+        return res.json({success: true});
 
     } catch (error) {
         return res.json({success: false, message: error.message});
+    }
+}
+
+export const logout = async (req, res) => {
+    try {
+        res.clear
+    } catch (error) {
+        return res.json({success: false, message: error.message});
+    }
+}
