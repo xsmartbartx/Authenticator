@@ -11,3 +11,7 @@ const userSchema = new mongoose.Schema({
     resetOtp: {type: String, default: ''},
     resetOtpExpiresAt: {type: Number, default: 0}
 })
+
+const userModel = mongoose.model || mongoose.model('user', userSchema);
+
+export default userModel;
