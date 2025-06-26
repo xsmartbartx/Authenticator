@@ -175,3 +175,16 @@ export const isAuthenticated = async (req, res) => {
         return res.json({success: false, message: error.message});
     }
 }
+
+export const sendResetOtp = async (req, res) => {
+    const { email } = req.body;
+
+    if (!email) {
+        return res.json({success: false, message: "Please provide your email!"});
+    }
+
+    try {
+
+    } catch (error) {
+        return res.json({success: false, message: error.message});
+    }
