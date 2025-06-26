@@ -237,6 +237,14 @@ export const resetPassword = async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(newPassword, 10);
 
+        user.password = hashedPassword;
+        user.resetOtp = '';
+        user.resetOtpExpiresAt = 0;
+        
+        await user.save();
+
+        return res.json({success: true, message: "Password reset successfully!"});
+
     } catch (error) {
         return res.json({success: false, message: error.message});
     }
