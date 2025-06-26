@@ -156,6 +156,13 @@ export const verifyEmail = async (req, res) => {
             return res.json({success: false, message: "OTP expired!"});
         }
 
+        user.isAccountVerified = true;
+        user.verifyOtp = '';
+        user.verifyOtpExpiresAt = 0;
+
+        await user.save();
+        return res.json({success: true, message: "Account verified successfully!"});
+
     } catch (error) {
         return res.json({success: false, message: error.message});
     }
