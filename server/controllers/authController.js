@@ -134,3 +134,11 @@ export const sendVerifyOtp = async (req, res) => {
         res.json({success: false, message: error.message});
     }
 }
+
+export const verifyEmail = async (req, res) => {
+    const { userId, otp } = req.body;
+
+    if (!userId || !otp) {
+        return res.json({success: false, message: "Please provide user ID and OTP!"});
+    }
+}
