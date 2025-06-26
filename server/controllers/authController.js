@@ -213,3 +213,21 @@ export const sendResetOtp = async (req, res) => {
     }
 }
 
+export const resetPassword = async (req, res) => {
+    const { email, otp, newPassword } = req.body;
+
+    if (!email || !otp || !newPassword) {
+        return res.json({success: false, message: "Please fill all the fields!"});
+    }
+
+    try {
+
+        const user = await userModel.findOne({ email });
+        if (!user) {
+            return res.json({success: false, message: "User not found!"});
+        }
+
+    } catch (error) {
+        return res.json({success: false, message: error.message});
+    }
+}
