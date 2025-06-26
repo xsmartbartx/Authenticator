@@ -235,6 +235,8 @@ export const resetPassword = async (req, res) => {
             return res.json({success: false, message: "OTP expired!"});
         }
 
+        const hashedPassword = await bcrypt.hash(newPassword, 10);
+
     } catch (error) {
         return res.json({success: false, message: error.message});
     }
