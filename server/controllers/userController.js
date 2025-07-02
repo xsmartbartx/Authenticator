@@ -13,8 +13,9 @@ export const getUserData = (req, res) => {
             success: true,
             userData: {
                 name: user.name,
+                isAccountVerified: user.isAccountVerified,
             }
-        })
+        });
 
     } catch (error) {
             res.json({ success: false, message: error.message });
