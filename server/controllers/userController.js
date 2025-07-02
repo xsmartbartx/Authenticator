@@ -9,7 +9,12 @@ export const getUserData = (req, res) => {
             return res.json({ success: false, message: "User not found" });
         }
 
-
+        res.json({
+            success: true,
+            userData: {
+                name: user.name,
+            }
+        })
 
     } catch (error) {
             res.json({ success: false, message: error.message });
