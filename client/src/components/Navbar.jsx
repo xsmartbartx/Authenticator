@@ -1,9 +1,10 @@
 import React from 'react'
+import { assets } from '../assets/assets'
 
 const Navbar = () => {
   return (
     <div>
-        <img src="/logo.png" alt="Logo" style={{height: '50px'}} />
+        <img src={assets.logo} alt="" className='W-28 SM:W-32'></img>
     </div>
   )
 }
