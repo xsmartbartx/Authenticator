@@ -5,6 +5,7 @@ const Navbar = () => {
   return (
     <div>
         <img src={assets.logo} alt="" className='W-28 SM:W-32'></img>
+        <button>Logowanie</button>
     </div>
   )
 }
