@@ -37,8 +37,11 @@ const Login = () => {
 
           <p className='mb-4 text-indigo-500 cursor-pointer'>Forgot password?</p>
 
-          <button className='w-full py-2.5 rounded-full'>{state}</button>
+          <button className='w-full py-2.5 rounded-full bg-gradient-to-r from-indigo-500
+           to-indigo-900'>{state}</button>
         </form>
+
+          <p>Masz już konto?<span>Zaloguj się</span></p>
 
        </div>
     </div>
