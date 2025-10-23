@@ -41,7 +41,8 @@ const Login = () => {
            to-indigo-900'>{state}</button>
         </form>
 
-          <p>Masz już konto?<span>Zaloguj się</span></p>
+          <p className='text-gray-400 text-center text-xs mt-4'>Masz już konto?{' '}
+            <span className='text-blue-400 cursor-pointer underline'>Zaloguj się</span></p>
 
        </div>
     </div>
