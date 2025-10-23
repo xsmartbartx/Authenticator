@@ -34,6 +34,8 @@ const Login = () => {
             <img src={assets.lock_icon} alt="" />
             <input className='bg-transparent outline-none' type="password" placeholder="Password" required/>
           </div>
+
+          <p>Forgot password?</p>
         </form>
 
        </div>
