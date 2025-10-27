@@ -45,8 +45,10 @@ const Login = () => {
         </form>
 
            {state === 'Sign Up' ? (<p className='text-gray-400 text-center text-xs mt-4'>Masz już konto?{' '}
-            <span className='text-blue-400 cursor-pointer underline'>Zaloguj się</span></p>) : 
-            (<p className='text-gray-400 text-center text-xs mt-4'>Nie masz konta?{' '}
+            <span className='text-blue-400 cursor-pointer underline'>Zaloguj się</span></p>
+            ) 
+            : (
+            <p className='text-gray-400 text-center text-xs mt-4'>Nie masz konta?{' '}
             <span className='text-blue-400 cursor-pointer underline'>Zarejestruj się</span></p>)}
 
           
