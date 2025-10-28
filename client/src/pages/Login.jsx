@@ -51,7 +51,7 @@ const Login = () => {
             placeholder="Password" required/>
           </div>
 
-          <p className='mb-4 text-indigo-500 cursor-pointer'>Forgot password?</p>
+          <p onClick={()=>navigate('/reset-password')} className='mb-4 text-indigo-500 cursor-pointer'>Forgot password?</p>
 
           <button className='w-full py-2.5 rounded-full bg-gradient-to-r from-indigo-500
            to-indigo-900'>{state}</button>
