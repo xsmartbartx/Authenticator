@@ -22,18 +22,22 @@ const Login = () => {
         'Create your account' : 'Login to your account!'}</p>
 
         <form>
-          {state === 'Sign Up'  (}
+          {state === 'Sign Up' && (
           <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5
           rounded-full bg-[#333A5C]'>
             <img src={assets.person_icon} alt="" />
-            <input className='bg-transparent outline-none' type="text" placeholder="Username" required/>
+            <input onChange={e => setName(e.target.value)} value={name}
+            className='bg-transparent outline-none' type="text"
+            placeholder="Username" required/>
           </div>
-          
+          )}
 
           <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5
           rounded-full bg-[#333A5C]'>
             <img src={assets.mail_icon} alt="" />
-            <input className='bg-transparent outline-none' type="email" placeholder="Email id" required/>
+            <input onChange={e => setName(e.target.value)} value={name}
+            className='bg-transparent outline-none' type="email"
+            placeholder="Email id" required/>
           </div>
           <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5
           rounded-full bg-[#333A5C]'>
