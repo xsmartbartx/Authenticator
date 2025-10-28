@@ -42,7 +42,9 @@ const Login = () => {
           <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5
           rounded-full bg-[#333A5C]'>
             <img src={assets.lock_icon} alt="" />
-            <input className='bg-transparent outline-none' type="password" placeholder="Password" required/>
+            <input onChange={e => setName(e.target.value)} value={name}
+            className='bg-transparent outline-none' type="password"
+            placeholder="Password" required/>
           </div>
 
           <p className='mb-4 text-indigo-500 cursor-pointer'>Forgot password?</p>
