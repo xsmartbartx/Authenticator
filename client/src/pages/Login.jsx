@@ -14,6 +14,20 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    const onSubmitHand = async (e) => {
+      try {
+        e.preventDefault();
+
+        if (state === 'Zapisz się') {
+
+        } else {
+
+        }
+      } catch (error) {
+        console.error("Error during form submission:", error);
+      }
+    }
+
   return (
     <div className='flex items-center justify-center min-h-screen px-6 sm:px-0
      bg-gradient-to-br from-blue-200 to-purple-400'>
@@ -27,7 +41,7 @@ const Login = () => {
         <p className='text-center text-sm mb-6'>{state === 'Sign Up' ?
         'Create your account' : 'Login to your account!'}</p>
 
-        <form>
+        <form onSubmit={onSubmitHand}>
           {state === 'Sign Up' && (
           <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5
           rounded-full bg-[#333A5C]'>
