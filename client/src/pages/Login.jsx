@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { assets } from '../assets/assets'
-import { useNavigate } from 'react-router-dom'
+import { data, useNavigate } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
 
 const Login = () => {
@@ -26,9 +26,12 @@ const Login = () => {
                 email,
                 password
             })
-            navigate('/login')
+            if (data?.success) {
+              setIsLoggedin(true)
+              navigate('/')
+            }
         } else {
-
+          alert(data.message)
         }
       } catch (error) {
         console.error("Error during form submission:", error);
