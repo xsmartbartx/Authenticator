@@ -19,7 +19,12 @@ const Login = () => {
         e.preventDefault();
 
         if (state === 'Zapisz się') {
-
+            const {data} = await axios.post(backendUrl + '/api/auth/register', {
+                name,
+                email,
+                password
+            })
+            navigate('/login')
         } else {
 
         }
