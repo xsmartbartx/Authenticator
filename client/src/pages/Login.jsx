@@ -34,9 +34,22 @@ const Login = () => {
             }
         } else {
           toast.error(data.message)
+        } else {
+            const {data} = await axios.post(backendUrl + '/api/auth/login', {
+                name,
+                email,
+                password
+            })
+
+            if (data?.success) {
+              setIsLoggedin(true)
+              navigate('/')
+          }else {
+            toast.error(data.message)
+          }
         }
       } catch (error) {
-        console.error("Error during form submission:", error);
+        toast.error(data.message)
       }
     }
 
@@ -96,6 +109,7 @@ const Login = () => {
        </div>
     </div>
   )
+}
 }
 
 export default Login
