@@ -1,11 +1,13 @@
-import React, { use } from 'react'
+import React, { useContext, useState } from 'react'
 import { assets } from '../assets/assets'
-import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { AppContext } from '../context/AppContext'
 
 const Login = () => {
 
     const navigate = useNavigate()
+
+    const {backendUrl} = useContext(AppContext)
 
     const [state, setState] = useState('Zapisz się')
     const [name, setName] = useState('')
