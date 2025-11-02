@@ -33,7 +33,7 @@ const Login = () => {
               navigate('/')
             }
         } else {
-          alert(data.message)
+          toast.error(data.message)
         }
       } catch (error) {
         console.error("Error during form submission:", error);
