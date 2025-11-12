@@ -9,7 +9,7 @@ const Login = () => {
 
     const navigate = useNavigate()
 
-    const {backendUrl, setIsLoggedin} = useContext(AppContext)
+    const {backendUrl, setIsLoggedin, getUserData} = useContext(AppContext)
 
     const [state, setState] = useState('Zapisz się')
     const [name, setName] = useState('')
