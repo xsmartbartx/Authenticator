@@ -24,7 +24,8 @@ export const AppContextProvider = ({ props }) => {
         isLoggedIn,
         setIsLoggedIn,
         user,
-        setUserData
+        setUserData,
+        getUserData
     }
 
     return (
