@@ -30,6 +30,7 @@ const Login = () => {
             })
             if (data?.success) {
               setIsLoggedin(true)
+              getUserData()
               navigate('/')
             }
         } else {
