@@ -36,7 +36,7 @@ const Navbar = () => {
           {!userData.isAccountVerified && <li className='py-1 px-2 hover:bg-gray-200
           cursor-pointer'>Zweryfiluj email</li>}
 
-          <li className='py-1 px-2 hover:bg-gray-200
+          <li onClick={logout} className='py-1 px-2 hover:bg-gray-200
           cursor-pointer'>Wyloguj</li>
         </ul>
 
