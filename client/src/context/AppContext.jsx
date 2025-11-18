@@ -2,13 +2,21 @@ import { createContext } from "react";
 import { data } from "react-router-dom";
 import { toast } from "react-toastify";
 
-export const AppContext = createContext(null);
+export const AppContent = createContent(null);
 
-export const AppContextProvider = ({ props }) => {
+export const AppContentProvider = ({ props }) => {
 
     const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [user, setUserData] = useState(false)
+
+    const getAuthState = async () => {
+        try {
+            const {data} = await axios.get(backendUrl + '/api/auth/is-auth')
+        } catch (error) {
+            toast.error(error.message)
+        }
+    }
 
     const getUserData = async () => {
         try {
