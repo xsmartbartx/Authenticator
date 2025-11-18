@@ -1,8 +1,10 @@
 import { createContext, use } from "react";
+import axios from "axios";
+import { createContext, useEffect, useState } from "react";
 import { data } from "react-router-dom";
 import { toast } from "react-toastify";
 
-export const AppContent = createContent(null);
+export const AppContent = createContext();
 
 export const AppContentProvider = ({ props }) => {
 
