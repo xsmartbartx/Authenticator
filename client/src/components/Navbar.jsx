@@ -1,10 +1,13 @@
 import React, { use } from 'react'
 import { assets } from '../assets/assets'
 import { useNavigate } from 'react-router-dom'
+import { AppContent } from '../context/AppContext'
 
 const Navbar = () => {
 
     const navigate = useNavigate();
+    const {userData, backendUrl, seyUserData, setIsLoggedin} = useContext
+    (AppContent);
 
   return (
     <div className='w-full flex justify-between items-center p-4 sm:p-6 sm:px-24
