@@ -13,6 +13,10 @@ export const AppContentProvider = ({ props }) => {
     const getAuthState = async () => {
         try {
             const {data} = await axios.get(backendUrl + '/api/auth/is-auth')
+            if (data.succes) {
+                setIsLoggedIn(true)
+                getUserData()
+            }
         } catch (error) {
             toast.error(error.message)
         }
