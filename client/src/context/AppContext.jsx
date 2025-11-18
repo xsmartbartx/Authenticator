@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, use } from "react";
 import { data } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -30,6 +30,10 @@ export const AppContentProvider = ({ props }) => {
         } catch (error) {
             toast.error(data.message)
         }
+
+    useEffect(() => {
+        getAuthState()
+    }, [])
 
     const value = {
         backendUrl,
