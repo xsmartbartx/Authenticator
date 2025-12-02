@@ -3,6 +3,7 @@ import { assets } from '../assets/assets'
 import { useNavigate } from 'react-router-dom'
 import { AppContent } from '../context/AppContext'
 import { toast } from 'react-toastify'
+import axios from 'axios'
 
 
 const Navbar = () => {
@@ -10,6 +11,22 @@ const Navbar = () => {
     const navigate = useNavigate();
     const {userData, backendUrl, seyUserData, setIsLoggedin} = useContext
     (AppContent);
+
+    const sendVerificationotp = async () => {
+        try {
+          axios.defaults.withCredentials = true
+
+          const {data} = await axios.post(backendUrl + '/api/auth/send-verifify-otp')
+        
+          if (data.succes) {
+            toast.success(data.message)
+            navigate('/verify-email')
+          }
+        
+        } catch (error) {
+          
+        }
+    }
 
   const logout = async () => {
     try {
@@ -22,6 +39,8 @@ const Navbar = () => {
     } catch (error) {
       
     }
+  }
+  
 
   return (
     <div className='w-full flex justify-between items-center p-4 sm:p-6 sm:px-24
@@ -52,5 +71,6 @@ const Navbar = () => {
       </div>
   )
 }
+
 
 export default Navbar
