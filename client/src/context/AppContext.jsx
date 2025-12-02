@@ -8,6 +8,8 @@ export const AppContent = createContext();
 
 export const AppContentProvider = ({ props }) => {
 
+    axios.defaults.withCredentials = true;
+
     const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [user, setUserData] = useState(false)
