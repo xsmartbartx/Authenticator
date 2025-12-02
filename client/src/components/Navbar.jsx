@@ -20,11 +20,13 @@ const Navbar = () => {
         
           if (data.succes) {
             navigate('/verify-email')
-            toast
+            toast.success(data.message)
+          }else {
+            toast.error(data.message)
           }
         
         } catch (error) {
-          
+          toast.error(error.message)  
         }
     }
 
