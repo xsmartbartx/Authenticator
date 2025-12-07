@@ -17,8 +17,8 @@ const EmailVerify = () => {
             <input type='text' maxLength='1' key={index} required
             className='w-12 h-12 bg-[#333A5C] text-white text-center text-xl rounded-md'/>
           })}
-
         </div>
+        <button className='w-full bg-blue-600 hover:bg-blue-700'>Zweryfikuj email</button>
        </form>
      </div>
   )
