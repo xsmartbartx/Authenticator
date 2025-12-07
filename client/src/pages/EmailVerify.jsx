@@ -14,7 +14,7 @@ const EmailVerify = () => {
           Wprowadź 6-cyfrowy kod wysłany na adres email</p>
         <div className='flex justify-between mb-8'>
           {Array(6).fill(0).map((_, index) => {
-            <input type='text'/>
+            <input type='text' maxLength='1' key={index}/>
           })}
 
         </div>
