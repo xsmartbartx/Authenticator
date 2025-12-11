@@ -2,6 +2,12 @@ import React from 'react'
 import { assets } from '../assets/assets'
 
 const EmailVerify = () => {
+
+  const inputRefs = React.useRef([])
+
+  const handleInput = (e, index,) => {
+    if(e.target.value.length > 0 && index < inputRefs.current.length - 1) {
+
   return (
     <div className='flex items-center justify-center min-h-screen bg-gradient-to-br
      from-blue-200 to-purple-400'>
@@ -15,10 +21,14 @@ const EmailVerify = () => {
         <div className='flex justify-between mb-8'>
           {Array(6).fill(0).map((_, index) => {
             <input type='text' maxLength='1' key={index} required
-            className='w-12 h-12 bg-[#333A5C] text-white text-center text-xl rounded-md'/>
+            className='w-12 h-12 bg-[#333A5C] text-white text-center text-xl
+             rounded-md'/>
+             ref={e => inputRefs.current[index] = e}
+             onInput={e => { handleInput(e, index, inputRefs)
           })}
         </div>
-        <button className='w-full bg-blue-600 hover:bg-blue-700'>Zweryfikuj email</button>
+        <button className='w-full py-3 bg-grafinet-to-r from-indigo-500
+        to-indigo-900 text-white rouned-full'>Zweryfikuj email</button>
        </form>
      </div>
   )
