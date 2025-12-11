@@ -23,6 +23,19 @@ const EmailVerify = () => {
         if(inputRefs.current[index]) {
           inputRefs.current[index].value = char;
         }
+      })
+    }
+
+    const onSubmitHandler = async (e) => {
+      try {
+        e.preventDefault();
+        const otpArray = inputRefs.current.map(e => e.value)
+        const otp = otpArray.join('')
+
+        const {data} = await axios.post('/api/v1/auth/verify-email', {otp},
+      } catch (error) {
+        
+      }
     }
 
   return (
@@ -35,21 +48,23 @@ const EmailVerify = () => {
           Zweryfikuj Email OTP</h1>
         <p className='text-center mb-6 text-indigo-300'>
           Wprowadź 6-cyfrowy kod wysłany na adres email</p>
-        <div className='flex justify-between mb-8'>
-          {Array(6).fill(0).map((_, index) => (
-            <input type='text' maxLength='1' key={index} required
+        <div className='flex justify-between mb-8' onPaste={handlePaste}>
+          {Array(6).fill(0).map((_, index) =>(
+            <input type="text" maxLength='1' key={index} required
             className='w-12 h-12 bg-[#333A5C] text-white text-center text-xl
              rounded-md'
              ref={e => inputRefs.current[index] = e}
-             onInput={(e) => { handleInput(e, index)
-             onKeyDown{(e) => handleKeyDown(e, index)
-          })}
+             onInput={(e) => handleInput(e, index) }
+             onKeyDown{(e) => handleKeyDown(e, index)}
+             />
+          ))}
         </div>
         <button className='w-full py-3 bg-grafinet-to-r from-indigo-500
         to-indigo-900 text-white rouned-full'>Zweryfikuj email</button>
        </form>
      </div>
   )
+}
 }
 
 export default EmailVerify
