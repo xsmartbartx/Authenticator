@@ -5,7 +5,7 @@ import { AppContext } from '../context/AppContext'
 
 const EmailVerify = () => {
 
-  const {backendURL} = React.useContext(AppContext)
+  const {backendURLm, isLoggedin, userData, getUserData} = React.useContext(AppContext)
   const inputRefs = React.useRef([])
 
   const handleInput = (e, index,) => {
