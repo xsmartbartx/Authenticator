@@ -1,8 +1,11 @@
 import React from 'react'
 import { assets } from '../assets/assets'
+import axios from 'axios'
+import { AppContext } from '../context/AppContext'
 
 const EmailVerify = () => {
 
+  const {backendURL} = React.useContext(AppContext)
   const inputRefs = React.useRef([])
 
   const handleInput = (e, index,) => {
@@ -32,7 +35,7 @@ const EmailVerify = () => {
         const otpArray = inputRefs.current.map(e => e.value)
         const otp = otpArray.join('')
 
-        const {data} = await axios.post('/api/v1/auth/verify-email', {otp},
+        const {data} = await axios.post()
       } catch (error) {
         
       }
