@@ -5,6 +5,7 @@ import { AppContext } from '../context/AppContext'
 
 const EmailVerify = () => {
 
+  axios.defaults.withCredentials = true;
   const {backendURLm, isLoggedin, userData, getUserData} = React.useContext(AppContext)
   const inputRefs = React.useRef([])
 
@@ -35,7 +36,7 @@ const EmailVerify = () => {
         const otpArray = inputRefs.current.map(e => e.value)
         const otp = otpArray.join('')
 
-        const {data} = await axios.post()
+        const {data} = await axios.post(baskendURL + '/api/auth/verify-account')
       } catch (error) {
         
       }
