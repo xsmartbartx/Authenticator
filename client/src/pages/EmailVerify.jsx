@@ -12,7 +12,7 @@ const EmailVerify = () => {
   }
 
   const handleKeyDown = (e, index) => {
-    if(e.key === 'Backspace' && index > 0 && e.target.value.length === 0) {
+    if(e.key === 'Backspace' && e.target.value.length === '' && index > 0) {
       inputRefs.current[index - 1].focus();
     }
 
