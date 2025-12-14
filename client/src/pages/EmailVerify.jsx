@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { use } from 'react'
 import { assets } from '../assets/assets'
 import axios from 'axios'
 import { AppContext } from '../context/AppContext'
@@ -55,6 +55,11 @@ const EmailVerify = () => {
         toast.error(error.message)
       }
     }
+
+    useEffect(() => {
+      isLoggedin && useData && userData.isAccountVerified && navigate('/')},
+      [isLoggedin, userData,])
+      
 
   return (
     <div className='flex items-center justify-center min-h-screen bg-gradient-to-br
