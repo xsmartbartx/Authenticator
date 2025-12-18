@@ -7,6 +7,9 @@ const ResetPassword = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [newPassword, setNewPassword] = useState('');
+  const [isEmailSent, setIsEmailSent] = useState('');
+  const [otp, setOtp] = useState(0);
+  const [isOtpSubmitted, setIsOtpSubmitted] = useState(false);
 
   const handleInput = (e, index,) => {
     if(e.target.value.length > 0 && index < inputRefs.current.length - 1) {
@@ -37,6 +40,9 @@ const ResetPassword = () => {
         left-5 sm:left-20 top-5 w-28 sm:w-32 cursor-pointer'/>
 
 {/* wprowadz email id */}
+
+{!isEmailSent &&
+
       <form className='bg-slate-900 p-8 rounded-lg shadow-lg w-96 text-sm'>
         <h1 className='text-white text-2xl font-semibold text-center mb-4'>Zresetuj
         hasło</h1>
@@ -52,9 +58,10 @@ const ResetPassword = () => {
         <button className='w-full py-2.5 bg-gradient-to-r from-indigo-500
          to-indigo-900 text-white rounded-full mt-3'></button>
       </form>
-
+}
 {/* form wprowadzenia otp */}
 
+{!isOtpSubmitted && isEmailSent && 
 <form className='bg-slate-900 p-8 rounded-lg shadow-lg w-96 text-sm'>
         <h1 className='text-white text-2x1 font-semibold text-center mb-4'>
           Resetuj hasło OTP</h1>
@@ -74,6 +81,7 @@ const ResetPassword = () => {
         <button className='w-full py-3 bg-gradient-to-r from-indigo-500
         to-indigo-900 text-white rounded-full'>Zweryfikuj email</button>
       </form>
+}
 
 {/* nowe haslo  */}
       <form className='bg-slate-900 p-8 rounded-lg shadow-lg w-96 text-sm'>
