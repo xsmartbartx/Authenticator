@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const ResetPassword = () => {
 
   const navigate = useNavigate();
+  const [email, setEmail] = React.useState('');
 
   return (
     <div className='flex items-center justify-center min-h-screen bg-gradient-to-br
@@ -22,7 +23,7 @@ const ResetPassword = () => {
         rounded-full bg-[#333A5C]'>
           <img src={assets.email_icon} alt="" className='w-3 h-3' />
           <input type="email" placeholder='Email id'
-          className='bg-transparent outline-none'/>
+          className='bg-transparent outline-none text-white'/>
         </div>
       </form>
      </div>
