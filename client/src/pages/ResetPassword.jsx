@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const ResetPassword = () => {
 
   const navigate = useNavigate();
-  const [email, setEmail] = React.useState('');
+  const [email, setEmail] = useNavigate('');
 
   return (
     <div className='flex items-center justify-center min-h-screen bg-gradient-to-br
@@ -23,8 +23,11 @@ const ResetPassword = () => {
         rounded-full bg-[#333A5C]'>
           <img src={assets.email_icon} alt="" className='w-3 h-3' />
           <input type="email" placeholder='Email id'
-          className='bg-transparent outline-none text-white'/>
+          className='bg-transparent outline-none text-white'
+          value={email} onChange={e => setEmail(e.target)} required/>
         </div>
+        <button className='w-full py-2.5 bg-gradient-to-r from-indigo-500
+         to-indigo-900 text-white rounded-full mt-3'></button>
       </form>
      </div>
   )
