@@ -18,9 +18,10 @@ const ResetPassword = () => {
         hasło</h1>
         <p className='text-center mb-6 text-indigo-300'>Wprowadź zarejestrowany adres
         email</p>
-        <div className=''>
-          <img src="" alt="" />
-          <input type="email" />
+        <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5
+        rounded-full bg-[#333A5C]'>
+          <img src={assets.email_icon} alt="" className='w-3 h-3' />
+          <input type="email" placeholder='' />
         </div>
       </form>
      </div>
