@@ -6,6 +6,7 @@ const ResetPassword = () => {
 
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
+  const [newPassword, setNewPassword] = useState('');
 
   const handleInput = (e, index,) => {
     if(e.target.value.length > 0 && index < inputRefs.current.length - 1) {
@@ -54,9 +55,9 @@ const ResetPassword = () => {
 
 {/* form wprowadzenia otp */}
 
-<form onSubmit={onSubmitHandler} className='bg-slate-900 p-8 rounded-lg shadow-lg w-96 text-sm'>
+<form className='bg-slate-900 p-8 rounded-lg shadow-lg w-96 text-sm'>
         <h1 className='text-white text-2x1 font-semibold text-center mb-4'>
-          Resetuk hasło OTP</h1>
+          Resetuj hasło OTP</h1>
         <p className='text-center mb-6 text-indigo-300'>
           Wprowadź 6-cyfrowy kod wysłany na adres email</p>
         <div className='flex justify-between mb-8' onPaste={handlePaste}>
@@ -64,15 +65,32 @@ const ResetPassword = () => {
             <input type="text" maxLength='1' key={index} required
             className='w-12 h-12 bg-[#333A5C] text-white text-center text-xl
              rounded-md'
-             ref={e => inputRefs.current[index] = e}
-             onInput={(e) => handleInput(e, index) }
-             onKeyDown{(e) => handleKeyDown(e, index)}
-             />
+            ref={e => inputRefs.current[index] = e}
+            onInput={(e) => handleInput(e, index) }
+            onKeyDown={(e) => handleKeyDown(e, index)}
+            />
           ))}
         </div>
         <button className='w-full py-3 bg-gradient-to-r from-indigo-500
         to-indigo-900 text-white rounded-full'>Zweryfikuj email</button>
       </form>
+
+{/* nowe haslo  */}
+      <form className='bg-slate-900 p-8 rounded-lg shadow-lg w-96 text-sm'>
+        <h1 className='text-white text-2xl font-semibold text-center mb-4'>Nowe
+        hasło</h1>
+        <p className='text-center mb-6 text-indigo-300'>Wprowadź poniżej nowe hasło </p>
+        <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5
+        rounded-full bg-[#333A5C]'>
+          <img src={assets.lock_icon} alt="" className='w-3 h-3' />
+          <input type="password" placeholder='Nowe hasło'
+          className='bg-transparent outline-none text-white'
+          value={newPassword} onChange={e => setNewPassword(e.target.value)} required/>
+        </div>
+        <button className='w-full py-2.5 bg-gradient-to-r from-indigo-500
+         to-indigo-900 text-white rounded-full mt-3'></button>
+      </form>
+
      </div>
   )
 }
