@@ -1,8 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { assets } from '../assets/assets'
 import { useNavigate } from 'react-router-dom'
+import { AppContent } from '../context/AppContext'
+import axios from 'axios'
+import { toast } from 'react-toastify'
 
 const ResetPassword = () => {
+
+  const {backendURL} = useContext(AppContent)
+  axios.defaults.withCredentials = true;
 
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -32,6 +38,13 @@ const ResetPassword = () => {
       }
     })
   }
+
+  const onSubmitEmail = async (e) => {
+    e.preventDefault();
+    try {
+      const {data} = await axios.post(backendURL + '/api/auth/send-reset-otp',
+      {email})
+      data.success ? toast.success(data.message) : toast.error(data.message)
 
   return (
     <div className='flex items-center justify-center min-h-screen bg-gradient-to-br
