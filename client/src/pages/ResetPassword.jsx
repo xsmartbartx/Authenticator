@@ -7,9 +7,16 @@ const ResetPassword = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
 
+  const handleInput = (e, index,) => {
+    if(e.target.value.length > 0 && index < inputRefs.current.length - 1) {
+      inputRefs.current[index + 1].focus();
+    }
+  }
+ 
   const handleKeyDown = (e, index) => {
-  if(e.key === 'Backspace' && e.target.value.length === '' && index > 0) {
-    inputRefs.current[index - 1].focus();
+    if(e.key === 'Backspace' && e.target.value.length === '' && index > 0) {
+      inputRefs.current[index - 1].focus();
+    }
   }
 
   const handlePaste = (e) => {
