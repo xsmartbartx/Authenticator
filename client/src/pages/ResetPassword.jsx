@@ -7,6 +7,21 @@ const ResetPassword = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
 
+  const handleKeyDown = (e, index) => {
+  if(e.key === 'Backspace' && e.target.value.length === '' && index > 0) {
+    inputRefs.current[index - 1].focus();
+  }
+
+  const handlePaste = (e) => {
+    const paste = e.clipboardData.getData('text')
+    const pasteArray = paste.split('');
+    pasteArray.forEach((char, index) => {
+      if(inputRefs.current[index]) {
+        inputRefs.current[index].value = char;
+      }
+    })
+  }
+
   return (
     <div className='flex items-center justify-center min-h-screen bg-gradient-to-br
      from-blue-200 to-purple-400'>
@@ -34,7 +49,7 @@ const ResetPassword = () => {
 
 <form onSubmit={onSubmitHandler} className='bg-slate-900 p-8 rounded-lg shadow-lg w-96 text-sm'>
         <h1 className='text-white text-2x1 font-semibold text-center mb-4'>
-          Zweryfikuj Email OTP</h1>
+          Resetuk hasło OTP</h1>
         <p className='text-center mb-6 text-indigo-300'>
           Wprowadź 6-cyfrowy kod wysłany na adres email</p>
         <div className='flex justify-between mb-8' onPaste={handlePaste}>
@@ -50,7 +65,7 @@ const ResetPassword = () => {
         </div>
         <button className='w-full py-3 bg-gradient-to-r from-indigo-500
         to-indigo-900 text-white rounded-full'>Zweryfikuj email</button>
-       </form>
+      </form>
      </div>
   )
 }
