@@ -51,6 +51,13 @@ const ResetPassword = () => {
     }
   }
 
+  const onSubmitOTP = async (e) => {
+    e.preventDefault();
+    const otpArray = inputRefs.current.map(e => e.value)
+    setOtp(otpArray.join(''))
+    setIsOtpSubmitted(true);
+  }
+
   return (
     <div className='flex items-center justify-center min-h-screen bg-gradient-to-br
      from-blue-200 to-purple-400'>
@@ -61,7 +68,7 @@ const ResetPassword = () => {
 
 {!isEmailSent &&
 
-      <form className='bg-slate-900 p-8 rounded-lg shadow-lg w-96 text-sm'>
+      <form onSubmit={onSubmitEmail} className='bg-slate-900 p-8 rounded-lg shadow-lg w-96 text-sm'>
         <h1 className='text-white text-2xl font-semibold text-center mb-4'>Zresetuj
         hasło</h1>
         <p className='text-center mb-6 text-indigo-300'>Wprowadź zarejestrowany adres
