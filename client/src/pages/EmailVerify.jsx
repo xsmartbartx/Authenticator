@@ -82,8 +82,8 @@ const EmailVerify = () => {
              />
           ))}
         </div>
-        <button className='w-full py-3 bg-grafinet-to-r from-indigo-500
-        to-indigo-900 text-white rouned-full'>Zweryfikuj email</button>
+        <button className='w-full py-3 bg-gradient-to-r from-indigo-500
+        to-indigo-900 text-white rounded-full'>Zweryfikuj email</button>
        </form>
      </div>
   )
