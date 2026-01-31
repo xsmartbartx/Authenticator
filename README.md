@@ -30,6 +30,7 @@ Repozytorium zawiera dwie główne części:
 ```bash
 git clone https://github.com/xsmartbartx/Authenticator.git
 cd Authenticator
+```
 
 ### 2) Instalacja zależności
 
