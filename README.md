@@ -1,39 +1,48 @@
 # Authenticator
 
-Profesjonalny projekt generowania kodów uwierzytelniania (2FA / TOTP) w przeglądarce/serverze.
-
-## 🧠 Opis projektu
-
-**Authenticator** to aplikacja do generowania jednorazowych kodów uwierzytelniających (np. TOTP), oparta na technologiach:
-- JavaScript / Node.js
-- Moduł frontendowy do integracji w UI
-- Backend API do zarządzania konfiguracją i sekretami
-
-Repozytorium zawiera dwie główne części:
-- `client` — interfejs użytkownika / biblioteka kliencka
-- `server` — serwer API
+A modular authentication code generator project (2FA / TOTP) designed for browser and server-side usage.
 
 ---
 
-## 🚀 Funkcje
+## 🧠 Project Description
 
-- Generowanie kodów 6-cyfrowych zgodnych z TOTP
-- Obsługa wielu kont/kluczy użytkownika
-- Modularna architektura front + back
+**Authenticator** is an application for generating one-time authentication codes (such as TOTP), built with a modular architecture that separates client and server responsibilities.
+
+It can be used as:
+
+- A standalone 2FA application
+- A security module for larger systems
+- An authentication component for web platforms
+- A developer-ready base for auth-related tooling
+
+The repository is structured into two main parts:
+
+- `client` — user interface / frontend layer
+- `server` — backend API and authentication logic
 
 ---
 
-## 📦 Instalacja
+## 🚀 Features
 
-### 1) Klonowanie repozytorium
+- One-time code generation (TOTP)
+- Multi-secret / multi-account support
+- Client + server modular architecture
+- Easy integration with login systems
+- Extensible project structure
+- Security-focused design baseline
+
+---
+
+## 📦 Installation
+
+### 1️⃣ Clone the repository
 
 ```bash
 git clone https://github.com/xsmartbartx/Authenticator.git
 cd Authenticator
 ```
 
-### 2) Instalacja zależności
-
+### 2️⃣ Install dependencies
 Backend
 cd server
 npm install
@@ -42,28 +51,41 @@ Frontend
 cd ../client
 npm install
 
-## 🛠 Konfiguracja
+## 🛠 Configuration
 
-Ustaw zmienne środowiskowe w odpowiednich .env (przykładowy plik .env.example powinien być w każdym katalogu).
+Configure environment variables using .env files.
 
-Przykład zmiennych środowiskowych:
+Example:
 
 PORT=3000
 JWT_SECRET=secure_secret_here
+TOKEN_EXPIRATION=300
 
-## ▶️ Uruchomienie
+
+If an example config exists:
+
+cp .env.example .env
+
+
+Then edit values as needed.
+
+## ▶️ Running the Project
 Backend
 cd server
 npm start
 
 
-Serwer API dostępny pod: http://localhost:3000
+Backend default address:
+
+http://localhost:3000
 
 Frontend
 cd client
 npm start
 
 
-Aplikacja frontendowa działa domyślnie na: http://localhost:5173
+Frontend default address:
+
+http://localhost:5173
 git clone https://github.com/xsmartbartx/Authenticator.git
 cd Authenticator
